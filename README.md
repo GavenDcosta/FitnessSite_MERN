@@ -1,5 +1,7 @@
 ﻿# FitnessSite_MERN
 
+ [check deployment here](https://gaven-fitness.vercel.app/)
+
  This is the same as my FitnessSite_React_RapidAPI project repository.
 
  But in this one I made a clone of the ExerciseDB API of RapidAPI and used that instead.
