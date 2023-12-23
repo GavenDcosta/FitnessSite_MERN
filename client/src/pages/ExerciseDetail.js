@@ -18,7 +18,7 @@ const ExerciseDetail = () => {
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-       const exerciseDbUrl = 'http://localhost:5000'
+       const exerciseDbUrl = 'https://gaven-fitness-site-api.vercel.app'
        const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
        const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`)

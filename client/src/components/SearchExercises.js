@@ -12,7 +12,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   
   useEffect(() => {
    const fetchExercisesData = async () => {  
-      const bodyPartsData = await fetchData('http://localhost:5000/exercises/bodyPartList')
+      const bodyPartsData = await fetchData('https://gaven-fitness-site-api.vercel.app/exercises/bodyPartList')
 
       setBodyParts(['all', ...bodyPartsData])
 
@@ -26,7 +26,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if(search) {
-      const exercisesData = await fetchData('http://localhost:5000/exercises')
+      const exercisesData = await fetchData('https://gaven-fitness-site-api.vercel.app/exercises')
        
       const searchedExercises = exercisesData.filter(
         (exercise) => exercise.name.toLowerCase().includes(search)
