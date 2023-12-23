@@ -15,7 +15,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       if(bodyPart === 'all'){
         exercisesData = await fetchData('https://gaven-fitness-site-api.vercel.app/exercises')
       }else {
-        exercisesData = await fetchData(`https://gaven-fitness-site-api.vercel.app/bodyPart/${bodyPart}`)
+        exercisesData = await fetchData(`https://gaven-fitness-site-api.vercel.app/exercises/bodyPart/${bodyPart}`)
       }
       
       setExercises(exercisesData)
