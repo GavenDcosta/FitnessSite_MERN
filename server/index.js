@@ -32,6 +32,9 @@ mongoose.connect(CONNECTION_URL, {
   .catch((error) => console.log(error.message))
 
 
+  // The ExercioseDB API updates its imgUrl everyday at 12pm US central time 
+  // so i have to update the daily data every day at 11:32pm IST 
+  // The below code does this work
 
 
 const options = {
@@ -63,10 +66,38 @@ async function fetchAndUpdateDB(){
 }
 
 
-const interval = 10 * 60 * 60 * 1000;  
 
-setInterval(() => {
-  fetchAndUpdateDB();
-}, interval);
+function scheduleDailyTask(hour, minute, callback) {
+  const now = new Date();
+  const targetTime = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate(),
+    hour,
+    minute,
+    0,
+    0
+  );
 
+  // Adjust for IST (UTC+5:30)
+  targetTime.setUTCHours(targetTime.getUTCHours() + 5);
+  targetTime.setUTCMinutes(targetTime.getUTCMinutes() + 30);
 
+  // If the target time has already passed, set it for the next day
+  if (now > targetTime) {
+    targetTime.setDate(targetTime.getDate() + 1);
+  }
+
+  const timeDifference = targetTime - now;
+
+  // Set interval to run the task every 24 hours
+  setInterval(callback, 24 * 60 * 60 * 1000);
+
+  // Set timeout for the first run
+  setTimeout(() => {
+    callback();
+  }, timeDifference);
+}
+
+// Schedule the task to run every day at 11:32 pm IST
+scheduleDailyTask(23, 32, fetchAndUpdateDB);
