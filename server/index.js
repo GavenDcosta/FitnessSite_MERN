@@ -2,12 +2,9 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import fs from'fs'
 import axios from 'axios';
-
-// import Exercise from './models/exerciseModel.js'
-
-// import exerciseRoutes from './routes/exerciseRoutes.js'
+import Exercise from './models/exerciseModel.js'
+import exerciseRoutes from './routes/exerciseRoutes.js'
 
 
 dotenv.config()
