@@ -37,6 +37,7 @@ mongoose.connect(CONNECTION_URL, {
 const options = {
   method: 'GET',
   url: 'https://exercisedb.p.rapidapi.com/exercises',
+  params: {limit: '1400'},
   headers: {
     'X-RapidAPI-Key': RAPIDAPI_KEY,
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
@@ -67,7 +68,7 @@ async function fetchAndUpdateDB(){
 // Schedule the function to run every day at 8 AM IST
 const rule = new schedule.RecurrenceRule();
 rule.hour = 23;
-rule.minute = 35;
+rule.minute = 40;
 rule.second = 0;
 rule.tz = 'Asia/Kolkata'; // Set the timezone to IST
 
@@ -76,4 +77,4 @@ schedule.scheduleJob(rule, async () => {
   await fetchAndUpdateDB();
 });
 
-console.log('Scheduled job to run every day at 8 AM IST.');
+console.log('Scheduled job to run every day at 11:40 PM IST.');
