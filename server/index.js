@@ -65,7 +65,7 @@ async function fetchAndUpdateDB(){
 
 
 
-// Schedule the function to run every day at 8 AM IST
+// Schedule the function to run every day at 11;40 PM IST
 const rule = new schedule.RecurrenceRule();
 rule.hour = 23;
 rule.minute = 40;
