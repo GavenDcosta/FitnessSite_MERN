@@ -73,7 +73,7 @@ rule.second = 0;
 rule.tz = 'Asia/Kolkata'; // Set the timezone to IST
 
 schedule.scheduleJob(rule, async () => {
-  console.log('Running fetchAndUpdateDB at 8 AM IST...');
+  console.log('Running fetchAndUpdateDB at 11:40 PM IST...');
   await fetchAndUpdateDB();
 });
 
