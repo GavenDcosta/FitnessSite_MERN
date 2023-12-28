@@ -65,16 +65,15 @@ async function fetchAndUpdateDB(){
 
 
 
-// Schedule the function to run every day at 11;40 PM IST
 const rule = new schedule.RecurrenceRule();
 rule.hour = 24;
 rule.minute = 0;
 rule.second = 0;
-rule.tz = 'Asia/Kolkata'; // Set the timezone to IST
+rule.tz = 'Asia/Kolkata'; 
 
 schedule.scheduleJob(rule, async () => {
-  console.log('Running fetchAndUpdateDB at 11:40 PM IST...');
+  console.log('Running fetchAndUpdateDB at 12 PM IST...');
   await fetchAndUpdateDB();
 });
 
-console.log('Scheduled job to run every day at 11:40 PM IST.');
+console.log('Scheduled job to run every day at 12 PM IST.');
