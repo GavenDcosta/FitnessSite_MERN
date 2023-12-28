@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Stack, Typography } from "@mui/material"
 
-import Logo from '../assets/images/Logo-1.png'
+import Logo from '../assets/images/logo1.png'
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
         px='40px'
         pt='24px'
       >
-        <img src={Logo} alt='logo' width="200px" height="40px" />
+        <img src={Logo} alt='logo' width="100px" height="100px" />
         <Typography
           variant='h5'
           pb='40px'

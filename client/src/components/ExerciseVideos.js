@@ -16,7 +16,7 @@ const ExerciseVideos = ( {exerciseVideos, name} ) => {
         variant='h3'
         mb='24px'
       >
-        Watch <span style={{color:'#ff2625', textTransform:'capitalize'}}>{name}</span> exercise videos
+        Watch <span style={{color:'dodgerblue', textTransform:'capitalize'}}>{name}</span> exercise videos
       </Typography>
       <Stack
         justifyContent='flex-start'
