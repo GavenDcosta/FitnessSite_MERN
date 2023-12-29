@@ -24,30 +24,31 @@ export const fetchAndUpdateDB = async (req, res) => {
     });
   
     const exercisesData = response.data;
+
+    await Exercise.deleteMany({});
+    const insertedExercises = await Exercise.insertMany(exercisesData);
+  
+    console.log('Data updated successfully:', insertedExercises);
+    res.json({ message: 'Data updated successfully', data: insertedExercises });
   
     
-    Exercise.deleteMany({})
-      .then(() => {
-        console.log('Old exercises deleted successfully.');
+    // Exercise.deleteMany({})
+    //   .then(() => {
+    //     console.log('Old exercises deleted successfully.');
     
-        return Exercise.insertMany(exercisesData);
-      })
-      .then((exercises) => {
-        console.log('New exercises inserted successfully:', exercises);
-      })
-      .catch((err) => {
-        console.error(err.message);
-      });
+    //     return Exercise.insertMany(exercisesData);
+    //   })
+    //   .then((exercises) => {
+    //     console.log('New exercises inserted successfully:', exercises);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err.message);
+    //   });
 
-      res.send("Data updated successfully : ", exercisesData)
+    //   res.send("Data updated successfully : ", exercisesData)
 
     } catch (error) {
-      res.status(404).json({message: error})
-      if (error.response) {
-        console.error('Response status code:', error.response.status);
-        console.error('Response data:', error.response.data);
-      }
-    
+      console.error('Error:', error.message);
       res.status(500).json({ error: error.message });
   }
 
