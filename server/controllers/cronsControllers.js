@@ -45,7 +45,7 @@ export const fetchAndUpdateDB = async (req, res) => {
 
     } catch (error) {
       console.error('Error:', error.message);
-      res.status(500).json({ error: error });
+      res.status(404).json({ message : error });
   }
 
 }
