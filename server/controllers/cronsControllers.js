@@ -23,14 +23,14 @@ export const fetchAndUpdateDB = async (req, res) => {
       },
     });
 
-    const exercisesData = await response.data
+    const exercisesData = response.data
 
     console.log('Deleting old exercises...');
     await Exercise.deleteMany({});
 
     console.log('Inserting new exercises...');
     const exercises = await Exercise.insertMany(exercisesData);
-    
+
     res.send('New exercises inserted successfully:', exercises);
 
     } catch (error) {
