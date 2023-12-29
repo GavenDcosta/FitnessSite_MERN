@@ -41,11 +41,11 @@ export const fetchAndUpdateDB = async (req, res) => {
     await Exercise.deleteMany({});
     await Exercise.insertMany(exercisesData);
 
-    res.send("Data updated successfully : ", exercisesData)
+    res.status(200).send(exercisesData)
 
     } catch (error) {
       console.error('Error:', error.message);
-      res.status(500).json({ error: error.message });
+      res.status(500).json({ error: error });
   }
 
 }
