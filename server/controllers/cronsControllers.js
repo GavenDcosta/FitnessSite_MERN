@@ -43,6 +43,12 @@ export const fetchAndUpdateDB = async (req, res) => {
 
     } catch (error) {
       res.status(404).json({message: error})
+      if (error.response) {
+        console.error('Response status code:', error.response.status);
+        console.error('Response data:', error.response.data);
+      }
+    
+      res.status(500).json({ error: error.message });
   }
 
 }
