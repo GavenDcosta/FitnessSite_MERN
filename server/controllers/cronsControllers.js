@@ -24,19 +24,25 @@ export const fetchAndUpdateDB = async (req, res) => {
     });
 
     const exercisesData = await response.json
+
+    await Exercise.deleteMany({});
+    res.send('Old exercises deleted successfully.');
+
+    const exercises = await Exercise.insertMany(exercisesData);
+    res.send('New exercises inserted successfully:', exercises);
   
-    Exercise.deleteMany({})
-      .then(() => {
-        res.send('Old exercises deleted successfully.');
+    // Exercise.deleteMany({})
+    //   .then(() => {
+    //     res.send('Old exercises deleted successfully.');
     
-        return Exercise.insertMany(exercisesData);
-      })
-      .then((exercises) => {
-        res.send('New exercises inserted successfully:', exercises);
-      })
-      .catch((error) => {
-        res.status(500).json({ error: error });
-      });
+    //     return Exercise.insertMany(exercisesData);
+    //   })
+    //   .then((exercises) => {
+    //     res.send('New exercises inserted successfully:', exercises);
+    //   })
+    //   .catch((error) => {
+    //     res.status(500).json({ error: error });
+    //   });
 
 
     } catch (error) {
