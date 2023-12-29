@@ -22,21 +22,26 @@ export const fetchAndUpdateDB = async (req, res) => {
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com',
       },
     });
-  
-    Exercise.deleteMany({})
-      .then(() => {
-        console.log('Old exercises deleted successfully.');
-    
-        return Exercise.insertMany(exercisesData);
-      })
-      .then((exercises) => {
-        console.log('New exercises inserted successfully:', exercises);
-      })
-      .catch((err) => {
-        console.error(err.message);
-      });
 
-      res.send("Data updated successfully : ", exercisesData)
+    const exercisesData = response.json()
+  
+    // Exercise.deleteMany({})
+    //   .then(() => {
+    //     console.log('Old exercises deleted successfully.');
+    
+    //     return Exercise.insertMany(exercisesData);
+    //   })
+    //   .then((exercises) => {
+    //     console.log('New exercises inserted successfully:', exercises);
+    //   })
+    //   .catch((err) => {
+    //     console.error(err.message);
+    //   });
+
+    await Exercise.deleteMany({});
+    await Exercise.insertMany(exercisesData);
+
+    res.send("Data updated successfully : ", exercisesData)
 
     } catch (error) {
       console.error('Error:', error.message);
