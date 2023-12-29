@@ -1,5 +1,8 @@
 import axios from 'axios';
 import Exercise from '../models/exerciseModel.js';
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 // The ExercioseDB API updates its imgUrl everyday at 12pm US central time 
 // so i have to update the data every day 
