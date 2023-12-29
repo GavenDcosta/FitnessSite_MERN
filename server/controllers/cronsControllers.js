@@ -26,8 +26,6 @@ export const fetchAndUpdateDB = async (req, res) => {
     const exercisesData = await response.json
 
     await Exercise.deleteMany({});
-    res.send('Old exercises deleted successfully.');
-
     const exercises = await Exercise.insertMany(exercisesData);
     res.send('New exercises inserted successfully:', exercises);
   

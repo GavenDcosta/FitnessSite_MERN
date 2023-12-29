@@ -66,7 +66,7 @@ mongoose.connect(CONNECTION_URL, {
   
   const rule = new schedule.RecurrenceRule();
   rule.hour = 16;
-  rule.minute = 26;
+  rule.minute = 35;
   rule.second = 0;
   rule.tz = 'Asia/Kolkata'; 
   
