@@ -2,7 +2,7 @@ import axios from 'axios';
 import Exercise from '../models/exerciseModel.js';
 
 // The ExercioseDB API updates its imgUrl everyday at 12pm US central time 
-// so i have to update the daily data every day at 11:40pm IST 
+// so i have to update the data every day 
 // The below code does this work
 
 export const fetchAndUpdateDB = async (req, res) => {
