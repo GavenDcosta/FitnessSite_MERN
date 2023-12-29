@@ -28,24 +28,10 @@ export const fetchAndUpdateDB = async (req, res) => {
     await Exercise.deleteMany({});
     const exercises = await Exercise.insertMany(exercisesData);
     res.send('New exercises inserted successfully:', exercises);
-  
-    // Exercise.deleteMany({})
-    //   .then(() => {
-    //     res.send('Old exercises deleted successfully.');
-    
-    //     return Exercise.insertMany(exercisesData);
-    //   })
-    //   .then((exercises) => {
-    //     res.send('New exercises inserted successfully:', exercises);
-    //   })
-    //   .catch((error) => {
-    //     res.status(500).json({ error: error });
-    //   });
-
 
     } catch (error) {
       console.error('Error:', error.message);
-      res.status(404).json({ message : error });
+      res.json({ message : error });
   }
 
 }
