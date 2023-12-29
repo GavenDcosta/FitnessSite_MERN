@@ -23,7 +23,7 @@ export const fetchAndUpdateDB = async (req, res) => {
       },
     });
 
-    const exercisesData = response.json()
+    const exercisesData = response.json
   
     // Exercise.deleteMany({})
     //   .then(() => {
