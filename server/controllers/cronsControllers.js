@@ -31,7 +31,7 @@ export const fetchAndUpdateDB = async (req, res) => {
     console.log('Inserting new exercises...');
     const exercises = await Exercise.insertMany(exercisesData);
 
-    res.send('New exercises inserted successfully:', exercises);
+    res.send(exercises);
 
     } catch (error) {
       console.error('Error:', error.message);
